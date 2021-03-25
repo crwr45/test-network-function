@@ -59,4 +59,4 @@ while [[ $1 == -* ]]; do
 done
 
 set -x
-docker run --rm -v $LOCAL_TNF_CONFIG:$CONTAINER_TNF_DIR/config -v $LOCAL_KUBECONFIG:$CONTAINER_TNF_DIR/kubeconfig/config -v $OUTPUT_LOC:$CONTAINER_TNF_DIR/claim quay.io/testnetworkfunction/test-network-function:latest ./run-cnf-suites.sh -o $CONTAINER_TNF_DIR/claim $@
+podman run --rm -v $LOCAL_TNF_CONFIG:$CONTAINER_TNF_DIR/config:Z -v $LOCAL_KUBECONFIG:$CONTAINER_TNF_DIR/kubeconfig/config:Z -v $OUTPUT_LOC:$CONTAINER_TNF_DIR/claim:Z quay.io/testnetworkfunction/test-network-function:latest ./run-cnf-suites.sh -o $CONTAINER_TNF_DIR/claim $@
